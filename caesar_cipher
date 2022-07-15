@@ -1,0 +1,18 @@
+def caeser_cipher(string, number)
+  lower_case_alphabet = ('a'..'z').to_a
+  upper_case_alphabet = ('A'..'Z').to_a
+
+  string.chars.map do |char|
+    if lower_case_alphabet.include?(char)
+      idx = lower_case_alphabet.index(char)
+      new_idx = (idx + number) % lower_case_alphabet.length
+      lower_case_alphabet[new_idx]
+    elsif upper_case_alphabet.include?(char)
+      idx = upper_case_alphabet.index(char)
+      new_idx = (idx + number) % upper_case_alphabet.length
+      upper_case_alphabet[new_idx]
+    else
+      char
+   end
+  end.join
+end
